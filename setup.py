@@ -12,24 +12,21 @@ except ImportError:
     from distutils.core import setup
 
 version = ''
-with open('requests/__init__.py', 'r') as fd:
+with open('subcommand.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
 if not version:
     raise RuntimeError('Cannot find version information')
 
-with open('HISTORY.rst', 'r', 'utf-8') as f:
-    history = f.read()
-
 setup(
-    name='requests',
+    name='subcommand',
     version=version,
     description='Sub Command line parser for python CLI scripts',
     long_description=None,
     author_email='thrawn01@gmail.com',
     url='http://thrawn01.org/sub-command',
-    packages=['subcommand'],
+    py_modules=['subcommand'],
     install_requires=[],
     license='Apache 2.0',
     zip_safe=False,
