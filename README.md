@@ -3,9 +3,8 @@
 SubCommand is a simple and concise SubCommand parser to assist CLI developers
 in creating relatively complex sub commands.
 
-SubCommand is simple because the entire project fits into a single file, which
-is less and 500 lines. The interface consists of 3 Classes and a few decorators
-and that is it.
+The SubCommand project fits into a single file, which is less than 500 lines.
+The interface consists of 3 Classes and a few decorators and that is it.
 
 **Doesn't argparse already support sub commands?**
 
