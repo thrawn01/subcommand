@@ -116,11 +116,10 @@ class SubParser(object):
         return self.help()
 
     def bash_completion_script(self, prog):
-        """ Output a bash completion script to stdout
+        """ Output a bash completion script to stdout. To Create a bash
+        completion script on ubuntu and maybe other distros::
 
-        To Create a bash completion script on ubuntu and maybe other distros
-
-            ./my-script.py --bash-completion-script \
+            ./my-script.py --bash-completion-script \\
                     > /etc/bash_completion.d/my-script.py
         """
         print '_%(prog)s() {\n'\
@@ -133,9 +132,9 @@ class SubParser(object):
     def bash_completion(self, args):
         """Used by the bash completion script to output completion candidates.
         The args passed by the bash completion script to this command are as
-        follows
+        follows::
 
-            args = ['--bash-completion', '%prog', 'sub-command', 'command']
+            args = ['--bash-completion', '%prog', 'sub-cmd', 'command']
         """
         try:
             # If a subcommand is already present
@@ -207,8 +206,8 @@ class Commands(object):
 
     def pre_command(self):
         """This method is called prior to calling the command specified via the
-        command line. Use it to initialize common code within your command
-        object
+        command line. Use it to initialize common code within your
+        :class:`Commands` object
 
             >>> class TestCommands(Commands):
             ...      _name = 'test'
@@ -226,8 +225,8 @@ class Commands(object):
 
     def bash_completion(self):
         """By default returns all the commands defined for this
-        :class:`Commands`. This method is invoked when --bash-completion is
-        called for a specific subcommand. This can be overidden by the
+        :class:`Commands` object. This method is invoked when --bash-completion
+        is called for a specific subcommand. This can be overidden by the
         implementor to return custom behaivor """
         print ' '.join(self._commands.keys()),
         return 0
@@ -249,7 +248,7 @@ class Commands(object):
 
     def split(self, args, positionals):
         """Splits keys specified into separate lists, this method is commonly
-        used to splits positional arguments from keyword arguments
+        used to split positional arguments from keyword arguments
 
             >>> args, kwargs = self.split(args, ['my', 'list', 'of',
             ...                                  'positional', 'args'])

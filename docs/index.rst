@@ -297,7 +297,7 @@ Get the Code
 ------------
 
 SubCommand is developed on GitHub, You can find the code
-`here <https://github.com/kennethreitz/requests>`_.
+`here <https://github.com/thrawn01/subcommand>`_.
 
 Clone the public repository::
 
