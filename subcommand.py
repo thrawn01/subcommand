@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 
 __title__ = 'subcommand'
 __version__ = '1.0'
@@ -122,12 +124,12 @@ class SubParser(object):
             ./my-script.py --bash-completion-script \\
                     > /etc/bash_completion.d/my-script.py
         """
-        print '_%(prog)s() {\n'\
+        print('_%(prog)s() {\n'\
             '  local cur="${COMP_WORDS[COMP_CWORD]}"\n'\
             '  local list=$(%(prog)s --bash-completion $COMP_LINE)\n'\
             '  COMPREPLY=($(compgen -W "$list" $cur))\n'\
             '}\n'\
-            'complete -F _%(prog)s %(prog)s\n' % locals()
+            'complete -F _%(prog)s %(prog)s\n' % locals())
 
     def bash_completion(self, args):
         """Used by the bash completion script to output completion candidates.
@@ -145,18 +147,18 @@ class SubParser(object):
             pass
 
         # Print out all the possible sub command names
-        print ' '.join(self.sub_commands.keys())
+        print(' '.join(self.sub_commands.keys()))
         return 0
 
     def help(self):
         """Print help message and exit"""
-        print "Usage: %s <command> [-h]\n" % self.prog
+        print("Usage: %s <command> [-h]\n" % self.prog)
         if self.desc:
-            print self.desc + '\n'
+            print(self.desc + '\n')
 
-        print "Available Commands:"
-        for name, command in self.sub_commands.iteritems():
-            print "  ", name
+        print("Available Commands:")
+        for name, command in self.sub_commands.items():
+            print("  ", name)
             # TODO: Print some help message for the commands?
         return 1
 
@@ -179,7 +181,7 @@ class Parser(SubParser):
         result = {}
         # get a listing of all the methods
         for cmd in commands:
-            for (name, method) in cmd._commands.iteritems():
+            for (name, method) in cmd._commands.items():
                 result[name] = MethodWrapper(cmd, method)
         return result
 
@@ -228,7 +230,7 @@ class Commands(object):
         :class:`Commands` object. This method is invoked when --bash-completion
         is called for a specific subcommand. This can be overidden by the
         implementor to return custom behaivor """
-        print ' '.join(self._commands.keys()),
+        print(' '.join(self._commands.keys()), end=' ')
         return 0
 
     def remove(self, haystack, needles):
@@ -377,14 +379,14 @@ class Commands(object):
         """Print a help message with a list of available commands to choose
         from and return
         """
-        print "Usage: %s %s <command> [-h]\n" % (self.prog, self._name)
+        print("Usage: %s %s <command> [-h]\n" % (self.prog, self._name))
         if self.__doc__:
             stripped = self.__doc__.strip('\n| ')
-            print re.sub(' ' * 4, '', stripped)
+            print(re.sub(' ' * 4, '', stripped))
 
-        print "\nAvailable Commands:"
-        for name, command in self._commands.iteritems():
-            print "  ", name
+        print("\nAvailable Commands:")
+        for name, command in self._commands.items():
+            print("  ", name)
             # print "  ", command.__doc__.strip('\n')
         return 1
 
