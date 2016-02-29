@@ -1,3 +1,6 @@
+
+Complete documentation is available [here](http://subcommand.org)
+
 # SubCommand CLI Parser
 
 SubCommand is a simple and concise SubCommand parser to assist CLI developers
@@ -25,6 +28,13 @@ now none of them are as small and simple to use as SubCommand. IMHO =)
 
 In fact `SubCommand` is so small you can easily copy single .py module into your
 own project to avoid carrying around yet another external dependency.
+
+## Installation
+
+Install via pip
+```
+$ pip install cli-subcommand
+```
 
 ## What does it look like?
 

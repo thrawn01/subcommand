@@ -30,6 +30,17 @@ now none of them are as small and simple to use as SubCommand. IMHO =)
 In fact `SubCommand` is so small you can easily copy single .py module into your
 own project to avoid carrying around yet another external dependency.
 
+
+Installation
+-----------------------
+
+Install via pip::
+
+    $ pip install cli-subcommand
+
+Source is available here http://github.com/thrawn01/subcommand
+
+
 What does it look like?
 -----------------------
 

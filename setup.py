@@ -20,11 +20,12 @@ if not version:
     raise RuntimeError('Cannot find version information')
 
 setup(
-    name='subcommand',
+    name='cli-subcommand',
     version=version,
     description='Sub Command line parser for python CLI scripts',
     long_description=None,
     author_email='thrawn01@gmail.com',
+    author='Derrick J. Wippler',
     url='http://thrawn01.org/sub-command',
     py_modules=['subcommand'],
     install_requires=[],
