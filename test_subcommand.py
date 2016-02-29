@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 from subcommand import opt, noargs
 import subcommand
 import unittest
