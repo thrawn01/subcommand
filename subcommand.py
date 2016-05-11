@@ -4,7 +4,7 @@ from __future__ import print_function
 
 
 __title__ = 'subcommand'
-__version__ = '1.0'
+__version__ = '1.0.1'
 __author__ = 'Derrick J. Wippler'
 __license__ = 'Apache 2.0'
 
