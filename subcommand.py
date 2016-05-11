@@ -428,7 +428,7 @@ class Commands(object):
 
         # Collect arguments that will be
         # passed to the method
-        for key, value in _to.items():
+        for key, value in list(_to.items()):
             if key in _from:
                 _to[key] = _from[key]
             # Remove arguments that have no value this allows

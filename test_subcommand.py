@@ -24,6 +24,10 @@ class CommandTest(subcommand.Commands):
             self.count += 1
         return 0
 
+    @opt('--nodefault')
+    def default(self, nodefault='spam'):
+        return nodefault
+
     @noargs
     def return_non_zero(self):
         print('Exit with non-zero status')
@@ -55,3 +59,16 @@ class TestSubCommandSimple(unittest.TestCase):
 
         # Test the non zero command
         self.assertEqual(parser.run(['return-non-zero']), 1)
+
+
+class TestSubCommandDefault(unittest.TestCase):
+
+    def test_subcommand_default(self):
+        test_command = CommandTest()
+        parser = subcommand.Parser([test_command], desc='testing')
+        ret = parser.run(['default'])
+
+        self.assertEqual(ret, 'spam')
+
+        ret = parser.run(['default', '--nodefault', 'eggs'])
+        self.assertEqual(ret, 'eggs')
